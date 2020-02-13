@@ -36,13 +36,11 @@ class TopGitReposFragmentAdapter : RecyclerView.Adapter<TopGitReposFragmentAdapt
 
     class ItemHolder(override val containerView: View) : RecyclerView.ViewHolder(containerView), LayoutContainer {
         fun bind(newItem: GitRepo) {
-            Log.i("salvo", "nov item ${newItem.description}")
             Picasso.get().load(newItem.owner.avatar_url).into(item_profile_img)
             item_repo_name.text = newItem.full_name
             item_stars.text = newItem?.stargazers_count.toString()
             item_author_name.text = newItem.owner.login
             item_forks.text = "Forks: " + newItem.forks
-
         }
     }
 
@@ -58,7 +56,7 @@ class TopGitReposFragmentAdapter : RecyclerView.Adapter<TopGitReposFragmentAdapt
     }
 
     fun updateList(list: ArrayList<GitRepo>){
-        this.itemList = list
+        this.itemList.addAll(list)
         notifyDataSetChanged()
     }
 }

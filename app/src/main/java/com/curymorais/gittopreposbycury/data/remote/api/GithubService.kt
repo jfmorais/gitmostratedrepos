@@ -18,7 +18,7 @@ interface GithubService {
 
 
     @GET("search/repositories?q=language:kotlin&sort=stars")
-    suspend fun getReposTradicional(@Query ("page") page: Long): GitApiResponse
+    suspend fun getReposByPage(@Query ("page") page: Long): GitApiResponse
 
 
 }

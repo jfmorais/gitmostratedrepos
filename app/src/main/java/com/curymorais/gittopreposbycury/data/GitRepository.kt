@@ -11,8 +11,8 @@ class GitRepository{
 
     suspend fun getRepos() = gitRepos.getRepos("kotlin","stars","desc")
     suspend fun getReposKot() = gitRepos.getReposKot("stars")
-    suspend fun getReposTrad() : GitApiResponse {
-       var repos =  gitRepos.getReposTradicional(1)
+    suspend fun getReposByPage(pageNumber :Long) : GitApiResponse {
+       var repos =  gitRepos.getReposByPage(pageNumber)
         Log.i("Cury", repos.incomplete_results.toString())
         return repos
     }
